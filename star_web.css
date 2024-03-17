@@ -1,0 +1,646 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppings', sans-serif;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    scroll-behavior: smooth;
+}
+
+:root{
+    --bg-color: #081b29;
+    --second-bg-color: #112e42;
+    --text-color: #ededed;
+    --main-color: #00abf0;
+}
+
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+}
+
+/* 全域樣式設定 */
+body {
+    background: var(--bg-color); /* 設定背景色為自訂的變數值 */
+    color: var(--text-color); /* 設定文字顏色為自訂的變數值 */
+}
+
+/* 頁面頂部標頭 */
+.header {
+    position: fixed; /* 固定定位 */
+    top: 0; /* 與視窗頂部的距離 */
+    left:0 ; /* 與視窗左側的距離 */
+    width: 100%; /* 寬度為100% */
+    padding: 2rem 9%; /* 上下左右各兩個單位的內邊距 */
+    background: transparent; /* 透明背景 */
+    display: flex; /* 使用彈性盒子模型 */
+    justify-content: space-between; /* 元素之間的空間平均分配 */
+    align-items: center; /* 垂直居中對齊 */
+    z-index: 100; /* 設定疊放順序 */
+}
+
+/* 網站標誌 */
+.logo {
+    font-size: 2.5rem; /* 字體大小 */
+    color: var(--text-color); /* 文字顏色為自訂的變數值 */
+    font-weight: 600; /* 字體粗細 */
+}
+
+/* 導航列連結 */
+.navbar a {
+    font-size: 1.7rem; /* 字體大小 */
+    color: var(--text-color); /* 文字顏色為自訂的變數值 */
+    font-weight: 500; /* 字體粗細 */
+    margin-left: 2.5rem; /* 左側外邊距 */
+    transition: .3s; /* 轉場動畫時間 */
+}
+
+.navbar a:hover,
+.navbar a.active {
+    color: var(--main-color); /* 滑鼠懸停或選中時的文字顏色 */
+}
+
+/* 選單圖示 */
+#menu-icon {
+    font-size: 3.6rem; /* 字體大小 */
+    color: var(--text-color); /* 文字顏色為自訂的變數值 */
+    cursor: pointer; /* 滑鼠指標形狀 */
+    display: none; /* 隱藏元素 */
+}
+
+/* 登入鏈接 */
+.login a {
+    font-size: 1.7rem; /* 字體大小 */
+    margin-left: 5rem; /* 左側外邊距 */
+}
+
+/* 頁面區塊 */
+section {
+    min-height: 100vh; /* 最小高度為視窗高度 */
+    padding: 1rem 9% 2rem; /* 上1rem、左右9%、下2rem的內邊距 */
+}
+
+/* 首頁區塊 */
+.home {
+    display: flex; /* 使用彈性盒子模型 */
+    align-items: center; /* 垂直居中對齊 */
+    justify-content: center; /* 水平居中對齊 */
+    height: 100vh; /* 高度為視窗高度 */
+    background: url('') no-repeat; /* 背景圖片不重複顯示 */
+    background-size: cover; /* 背景圖片大小為覆蓋整個容器 */
+    background-position: center; /* 背景圖片位置居中 */
+}
+
+.home-content {
+    max-width: 65rem; /* 最大寬度 */
+    text-align: center; /* 文字水平居中對齊 */
+}
+
+.home-content h1 {
+    font-size: 4rem; /* 字體大小 */
+    font-weight: 700; /* 字體粗細 */
+    line-height: 1.2; /* 行高 */
+    text-align: center; /* 文字水平居中對齊 */
+}
+
+.home-content h1 span {
+    color: var(--text-color); /* 文字顏色為自訂的變數值 */
+}
+
+.home-content .text-animate {
+    width: 32.8rem; /* 寬度 */
+}
+
+.home-content .text-animate h3 {
+    font-size: 5.2rem; /* 字體大小 */
+    font-weight: 700; /* 字體粗細 */
+    color: transparent; /* 文字透明 */
+    -webkit-text-stroke: .7px var(--main-color); /* 文字描邊效果 */
+    margin-left: 20px; /* 左側外邊距 */
+}
+
+.home-content p {
+    font-size: 1.6rem; /* 字體大小 */
+    margin: 2rem 0 3rem; /* 上2rem、下3rem的外邊距 */
+    line-height: 0; /* 行高為0 */
+}
+
+.btn-box{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    width: 34.5rem;
+    height: 5rem;
+}
+
+.btn-box .btn{
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 15rem;
+    height: 100%;
+    background: var(--main-color);
+    border: .2rem solid var(--main-color);
+    border-radius: .8rem;
+    font-size: 2rem;
+    font-weight: 600;
+    letter-spacing:  .1rem;
+    color: var(--bg-color);
+    z-index: 1;
+    overflow: hidden;
+    transition: .5s;
+}
+
+.btn-box .btn:hover {
+    color: var(--main-color);
+}
+
+.btn-box .btn:nth-child(2){
+    background: transparent;
+    color: var(--main-color);
+}
+
+.btn-box .btn:nth-child(2):hover{
+    color: var(--bg-color);
+}
+
+.btn-box .btn:nth-child(2)::before {
+    background: var(--main-color);
+}
+
+
+.btn-box .btn::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: var(--bg-color);
+    z-index: -1;
+    transition: .5s;
+}
+
+.btn-box .btn:hover::before{
+    width: 100%;
+}
+
+.home-sci{
+    position: absolute;
+    bottom: 4rem;
+    width: 170px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.home-sci a{
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: .2rem solid var(--main-color);
+    border-radius: 50%;
+    font-size: 20px;
+    color: var(--main-color);
+    z-index: 1;
+    overflow: hidden;
+    transition: .5s;
+}
+
+.home-sci a:hover{
+    color: var(--bg-color)
+}
+
+.home-sci a::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: var(--main-color);
+    z-index: -1;
+    transition: .5s;
+}
+
+.home-sci a:hover::before{
+    width: 100%;
+}
+
+#particles{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.about{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
+    background: var(--second-bg-color);
+    padding-bottom: 6rem;
+}
+
+.heading {
+    font-size: 5rem;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+span{
+    color: var(--main-color);
+}
+
+.about-img{
+    position: relative;
+    width: 25rem;
+    height: 25rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-img img{
+    width: 90%;
+    border-radius: 50%;
+    border: .2rem solid var(--main-color);
+}
+
+.about-img .circle-spin{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%)rotate(0);
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border-top: .2rem solid var(--second-bg-color);
+    border-bottom: .2rem solid var(--second-bg-color) ;
+    border-left: .2rem solid var(--main-color);
+    border-right: .2rem solid var(--main-color) ;
+}
+
+.about-content{
+    text-align: center;
+}
+
+.about-content h3{
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.about-content p{
+    font-size: 1.6rem;
+    margin: 1rem 0 3rem;
+}
+
+
+.btn-box.btns{
+    display: inline-block;
+    width: 15rem;
+}
+
+.btn-box.btns a::before{
+    background: var(--second-bg-color);
+}
+
+/* 教育部分的整体样式 */
+.education {
+    display: flex; /* 使用弹性布局 */
+    justify-content: center; /* 主轴居中对齐 */
+    align-items: center; /* 交叉轴居中对齐 */
+    flex-direction: column; /* 主轴方向垂直 */
+    min-height: auto; /* 最小高度自动 */
+    min-height: 100vh; /* 将最小高度设置为100vh */
+    padding-bottom: 5rem; /* 底部填充 */
+}
+
+/* 教育行的样式 */
+.education .education-row {
+    display: flex; /* 使用弹性布局 */
+    flex-wrap: wrap; /* 换行 */
+    gap: 5rem; /* 间隔 */
+}
+
+/* 教育列的样式 */
+.education-row .education-column {
+    flex: 1 1 38rem; /* 灵活增长，基准值38rem */
+}
+
+/* 标题的样式 */
+.education-column .title {
+    font-size: 2.5rem; /* 字体大小 */
+    margin: 0 0 1.5rem 2rem; /* 外边距 */
+}
+
+/* 教育盒子的样式 */
+.education-column .education-box {
+    border-left: .2rem solid var(--main-color); /* 左边框 */
+}
+
+/* 教育内容的样式 */
+.education-box .education-content {
+    position: relative; /* 相对定位 */
+    padding-left: 2rem; /* 左填充 */
+}
+
+/* 教育内容的悬停效果 */
+.education-box .education-content::before {
+    content: ''; /* 空内容 */
+    position: absolute; /* 绝对定位 */
+    top: 0; /* 顶部位置 */
+    left: -1.1rem; /* 左侧位置 */
+    width: 2rem; /* 宽度 */
+    height: 2rem; /* 高度 */
+    background: var(--main-color); /* 背景色 */
+    border-radius: 50%; /* 边框圆角 */
+}
+
+/* 教育内容盒子的样式 */
+.education-content .content {
+    position: relative; /* 相对定位 */
+    padding: 1.5rem; /* 填充 */
+    border: .2rem solid var(--main-color); /* 边框 */
+    border-radius: .6rem; /* 边框圆角 */
+    margin-bottom: 2rem; /* 底部外边距 */
+    overflow: hidden; /* 溢出隐藏 */
+}
+
+/* 教育内容盒子悬停效果 */
+.education-content .content::before {
+    content: ''; /* 空内容 */
+    position: absolute; /* 绝对定位 */
+    top: 0; /* 顶部位置 */
+    left: 0; /* 左侧位置 */
+    width: 0; /* 宽度 */
+    height: 100%; /* 高度 */
+    background: var(--second-bg-color); /* 背景色 */
+    z-index: -1; /* 层级 */
+    transition: .5s; /* 过渡效果 */
+}
+
+/* 教育内容悬停效果 */
+.education-content .content:hover::before {
+    width: 100%; /* 悬停时展开宽度 */
+}
+
+/* 年份的样式 */
+.education-content .content .year {
+    font-weight: 600; /* 字体加粗 */
+    font-size: 2.0rem; /* 字体大小 */
+    color: var(--main-color); /* 字体颜色 */
+    padding-bottom: .5rem; /* 底部填充 */
+}
+
+/* 年份图标的样式 */
+.education-content .content .year i {
+    padding-right: .5rem; /* 右填充 */
+}
+
+/* 标题的样式 */
+.education-content .content h3 {
+    font-size: 2rem; /* 字体大小 */
+}
+
+/* 段落的样式 */
+.education-content .content p {
+    font-size: 1.6rem; /* 字体大小 */
+    padding-top: .5rem; /* 顶部填充 */
+}
+
+
+
+.skills {
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: var(--second-bg-color);
+}
+
+/* 设置幻灯片容器的样式 */
+.slider {
+    width: 1000px; /* 设置幻灯片容器的宽度 */
+    max-width: 100vw; /* 最大宽度为视口宽度 */
+    height: 500px; /* 设置幻灯片容器的高度 */
+    margin: auto; /* 居中对齐 */
+    position: relative; /* 相对定位 */
+    overflow: hidden; /* 隐藏溢出内容 */
+}
+
+/* 设置图片列表的样式 */
+.slider .list {
+    position: absolute; /* 绝对定位 */
+    width: max-content; /* 宽度根据内容大小自动调整 */
+    height: 100%; /* 高度100% */
+    left: 0; /* 距离左侧位置 */
+    top: 0; /* 距离顶部位置 */
+    display: flex; /* 使用 Flex 布局 */
+    transition: 1s; /* 添加过渡效果，持续1秒 */
+}
+
+/* 设置幻灯片中的图片样式 */
+.slider .list img {
+    width: 1000px; /* 图片宽度 */
+    max-width: 100vw; /* 最大宽度为视口宽度 */
+    height: 100%; /* 图片高度100% */
+    object-fit: cover; /* 图片填充容器 */
+}
+
+/* 设置切换按钮的样式 */
+.slider .buttons {
+    position: absolute; /* 绝对定位 */
+    top: 45%; /* 距离顶部位置 */
+    left: 5%; /* 距离左侧位置 */
+    width: 90%; /* 宽度90% */
+    display: flex; /* 使用 Flex 布局 */
+    justify-content: space-between; /* 水平分散对齐 */
+}
+
+/* 设置切换按钮的样式 */
+.slider .buttons button {
+    width: 50px; /* 按钮宽度 */
+    height: 50px; /* 按钮高度 */
+    border-radius: 50%; /* 圆角 */
+    background-color: #fff5; /* 背景色 */
+    color: #fff; /* 字体颜色 */
+    border: none; /* 去除边框 */
+    font-family: monospace; /* 字体 */
+    font-weight: bold; /* 字重 */
+}
+
+/* 设置指示器（圆点）的样式 */
+.slider .dots {
+    position: absolute; /* 绝对定位 */
+    bottom: 10px; /* 距离底部位置 */
+    left: 0; /* 距离左侧位置 */
+    color: #fff; /* 字体颜色 */
+    width: 100%; /* 宽度100% */
+    margin: 0; /* 重置外边距 */
+    padding: 0; /* 重置内边距 */
+    display: flex; /* 使用 Flex 布局 */
+    justify-content: center; /* 水平居中对齐 */
+}
+
+/* 设置指示器（圆点）的样式 */
+.slider .dots li {
+    list-style: none; /* 去除列表样式 */
+    width: 10px; /* 圆点宽度 */
+    height: 10px; /* 圆点高度 */
+    background-color: #fff; /* 背景颜色 */
+    margin: 10px; /* 外边距 */
+    border-radius: 20px; /* 圆角 */
+    transition: 0.5s; /* 添加过渡效果，持续0.5秒 */
+}
+
+/* 设置活动状态的指示器（圆点）的样式 */
+.slider .dots li.active {
+    width: 30px; /* 活动状态圆点宽度 */
+}
+
+/* 媒体查询：屏幕宽度小于等于768px时 */
+@media screen and (max-width: 768px) {
+    .slider {
+        height: 400px; /* 设置幻灯片容器的高度为400px */
+    }
+}
+
+
+
+
+
+
+.contact form{
+    max-width: 70rem;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.contact form .input-box{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.contact form .input-box .input-field{
+    position: relative;
+    width: 49%;
+    margin: .8rem 0;
+}
+
+.contact form .input-box .input-field input,
+.contact form .textarea-field textarea{
+    width: 100%;
+    height: 100%;
+    padding: 1.5rem;
+    font-size: 1.6rem;
+    color: var(--text-color);
+    background: transparent;
+    border-radius: .6rem;
+    border: .2rem solid var(--main-color);
+}
+
+.contact form .input-box .input-field input::placeholder,
+.contact form .textarea-field textarea::placeholder{
+    color: var(--text-color);
+}
+
+.contact form .focus{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: var(--second-bg-color);
+    border-radius: .6rem;
+    z-index: -1;
+    transition: .5s;
+}
+
+.contact form .input-box .input-field input:focus~.focus,
+.contact form .input-box .input-field input:valid~.focus,
+.contact form .textarea-field textarea:focus~.focus,
+.contact form .textarea-field textarea:valid~.focus{
+    width: 100%;
+}
+
+.contact form .textarea-field{
+    position: relative;
+    margin: .8rem 0 2.7rem;
+    display: flex;
+}
+
+.contact form .textarea-field textarea{
+    resize: none;
+}
+
+.contact form .btn-box.btns .btn{
+    cursor: pointer;
+}
+
+.footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 2rem 9%;
+    background: var(--second-bg-color);
+}
+
+.footer-text{
+    font-size: 1.6rem;
+}
+
+/* Footer icons 的样式 */
+.footer-iconTop a {
+    position: relative; /* 相对定位，用于绝对定位伪元素 */
+    display: inline-flex; /* 以内联弹性盒方式显示，水平排列 */
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+    padding: .8rem; /* 图标周围的填充 */
+    background: var(--main-color); /* 背景颜色 */
+    border: .2rem solid var(--main-color); /* 边框颜色 */
+    border-radius: .6rem; /* 圆角边框 */
+    z-index: 1; /* 设置层级，位于伪元素之上 */
+    overflow: hidden; /* 隐藏溢出内容 */
+}
+
+/* 伪元素创建悬停效果 */
+.footer-iconTop a::before {
+    content: ''; /* 空内容 */
+    position: absolute; /* 绝对定位，叠加在图标上 */
+    top: 0; /* 与父元素顶部对齐 */
+    left: 0; /* 与父元素左侧对齐 */
+    width: 0; /* 初始宽度为0，用于动画 */
+    height: 100%; /* 高度与父元素相同 */
+    background: var(--second-bg-color); /* 背景颜色 */
+    z-index: -1; /* 在父内容之后 */
+    transition: .5s; /* 宽度变化的平滑过渡 */
+}
+
+/* 悬停效果的伪元素 */
+.footer-iconTop a:hover::before {
+    width: 100%; /* 悬停时展开宽度 */
+}
+
+/* 链接内图标的样式 */
+.footer-iconTop a i {
+    font-size: 2.4rem; /* 图标字体大小 */
+    color: var(--bg-color); /* 图标颜色 */
+}
+
+/* 图标悬停效果 */
+.footer-iconTop a:hover i {
+    color: var(--main-color); /* 悬停时改变图标颜色 */
+}
